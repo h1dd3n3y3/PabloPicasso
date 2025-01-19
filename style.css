@@ -1,0 +1,116 @@
+body {
+  margin: 0;
+  background-color: #2196F3;
+  height: 100vh; /* Ensure body fills the viewport height */
+  display: flex;
+  flex-direction: column; /* For fallback browsers without grid */
+}
+
+.header { grid-area: header; }
+.nav-bar { grid-area: nav-bar; }
+.left-panel { grid-area: left-panel; }
+.main-panel { grid-area: main-panel; }
+.footer { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header'
+    'left-panel nav-bar nav-bar'
+    'left-panel main-panel main-panel'
+    'footer footer footer';
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: 350px 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  height: 100%; /* Make the grid container fill the screen height */
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 0px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar ul {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar li, .left-panel li {
+  border: 2px solid black;
+  display: inline-block;
+  font-size: 30px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-bar li:hover, .left-panel li:hover {
+  background-color: rgb(255, 192, 91);
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.left-panel {
+  display: none;
+  padding: 10px;
+}
+
+.left-panel ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.left-panel li {
+  display: block; /* Items stack vertically */
+  padding: 10px;
+  margin: 20px auto;
+  width: 100%; /* Set a relative width */
+  max-width: 250px; /* Limit maximum width */
+  box-sizing: border-box; /* Avoiding overflow or uneven side alignment. */
+}
+
+.main-panel {
+  grid-area: main-panel;
+  background-color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  max-height: calc(100vh - 300px); /* Adjust height to avoid overlap with header and footer */
+  overflow-y: auto; /* Scrollable content */
+  padding: 10px; /* Optional padding for better readability */
+}
+
+.content-wrapper p {
+  text-align: left;
+}
+
+.content-wrapper > div {
+  display: none;
+}
+
+@media screen and (min-width: 900px) { /* Computer */
+  
+}
+
+@media screen and (max-width: 899px) { /* Smartphone or tablet */
+  
+}
+
